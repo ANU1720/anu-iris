@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from sklearn.linear_model import LogisticRegression
 import pandas as pd
-
+import os
 
 # Load data
 url = "iris.csv"
@@ -43,6 +43,7 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run()
+    # Needed for Render to bind to port 0.0.0.0
+    app.run(host='0.0.0.0', port=10000)
 
 
